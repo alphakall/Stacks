@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+using UnityEngine.EventSystems;
 public class Main : MonoBehaviour {
 
     public GameObject CurrentCube;
@@ -14,7 +14,8 @@ public class Main : MonoBehaviour {
     public bool Done;
 
     // Use this for initialization
-    void Start () {
+    void Start ()
+    {
         newBlock();
 	}
 
@@ -34,7 +35,7 @@ public class Main : MonoBehaviour {
             {
                 Done = true;
                 Text.gameObject.SetActive(true);
-                Text.text = "Your Score " + Level;
+                Text.text = "You Scored " + Level + " Stacks";                          //Score display
                 StartCoroutine(x());
                 return;
             }
@@ -71,7 +72,7 @@ public class Main : MonoBehaviour {
 
     IEnumerator x()
     {
-        yield return new WaitForSeconds(3f);
-        SceneManager.LoadScene("SampleScene");
+        yield return new WaitForSeconds(5f);
+        SceneManager.LoadScene("Game");
     }
 }
